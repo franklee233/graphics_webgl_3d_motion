@@ -1,0 +1,105 @@
+<!-- Hangbin Li - EECS 351 Project B
+main html file -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hangbin Li - Project B</title>
+    <style type="text/css">
+    .other_part {
+        float: right;
+        width: 21%;
+        font-size: 13px;
+        display: block;
+    }
+    #help_animation_div {
+        color: #FA8072;
+    }
+    </style>
+</head>
+
+<body onload="main()" onresize="winResize()">
+    <div class="interface">
+        <div class="other_part">
+            <div id="control_wind_div">
+                <table border="0">
+                    <tr>
+                        <td>
+                            <input type="button" name="toggle_projection" id="toggle_projection" onclick="toggleProjection()" value="Toggle Projection" />
+
+                            </p>
+                            <li>Orthographic Views Control</li>
+                            <input type="button" onclick="changeOrthParam(0,0)" value="Left -" />
+                            <input type="button" onclick="changeOrthParam(0,1)" value="Left +" />
+                            <input type="button" onclick="changeOrthParam(1,0)" value="Right -" />
+                            <input type="button" onclick="changeOrthParam(1,1)" value="Right +" />
+                            <input type="button" onclick="changeOrthParam(2,0)" value="Bottom -" />
+                            <input type="button" onclick="changeOrthParam(2,1)" value="Bottom +" />
+                            <input type="button" onclick="changeOrthParam(3,0)" value="Top -" />
+                            <input type="button" onclick="changeOrthParam(3,1)" value="Top +" />
+                            <input type="button" onclick="changeOrthParam(4,0)" value="Near -" />
+                            <input type="button" onclick="changeOrthParam(4,1)" value="Near +" />
+                            <input type="button" onclick="changeOrthParam(5,0)" value="Far -" />
+                            <input type="button" onclick="changeOrthParam(5,1)" value="Far +" />
+                            <input type="button" onclick="changeOrthParam(6,0)" value="Reset All" />
+
+                            </p>
+                            <li>Perspective View Control (Bottom Right)</li>
+                            <input type="button" onclick="changePersParam(0,0)" value="Fov -" />
+                            <input type="button" onclick="changePersParam(0,1)" value="Fov +" />
+                            <input type="button" onclick="changePersParam(1,0)" value="Aspect -" />
+                            <input type="button" onclick="changePersParam(1,1)" value="Aspect +" />
+                            <input type="button" onclick="changePersParam(2,0)" value="Near -" />
+                            <input type="button" onclick="changePersParam(2,1)" value="Near +" />
+                            <input type="button" onclick="changePersParam(3,0)" value="Far -" />
+                            <input type="button" onclick="changePersParam(3,1)" value="Far +" />
+                            <input type="button" onclick="changePersParam(4,0)" value="Reset All" />
+
+                            </p>
+                            <li>Flying Airplane Control (Half Cube)</li>
+                            <input type="button" onclick="changePlaneParam(0,0)" value="Velocity-" />
+                            <input type="button" onclick="changePlaneParam(0,1)" value="Velocity+" />
+                            <input type="button" onclick="changePlaneParam(1,0)" value="Pitch<-" />
+                            <input type="button" onclick="changePlaneParam(1,1)" value="Pitch->" />
+                            <input type="button" onclick="changePlaneParam(2,0)" value="Yaw<-" />
+                            <input type="button" onclick="changePlaneParam(2,1)" value="Yaw->" />
+                            <input type="button" onclick="changePlaneParam(3,0)" value="Roll<-" />
+                            <input type="button" onclick="changePlaneParam(3,1)" value="Roll->" />
+                            <input type="button" onclick="changePlaneParam(4,0)" value="Reset All" />
+                        </td>
+                    </tr>
+                </table>
+                <p>
+            </div>
+            <li>Quaternion Info (Hollow Cylinder)</li>
+            <div id="quaternion_mouse_text">
+                Mouse Drag totals (CVV x,y coords):
+                <br>0,0
+            </div>
+            Current Quaternion:
+            <div id="quaternion_value">X=0i, Y=0j, Z=0k,
+                <br>W=1, length=1.
+            </div>
+            <br>
+            <div id="help_btn_div">
+                <input type="button" name="help_btn" id="help_btn" onclick="writeHelp2Html()" value=" Hide Help " />
+            </div>
+            <div id="help_control_div"></div>
+            <div id="help_animation_div"></div>
+        </div>
+        <canvas id="webgl" width="1000" height="640">
+            Please use a browser that supports "canvas"
+        </canvas>
+    </div>
+    <script src="./lib/webgl-utils.js"></script>
+    <script src="./lib/webgl-debug.js"></script>
+    <script src="./lib/cuon-utils.js"></script>
+    <script src="./lib/cuon-matrix-quat.js"></script>
+    <script src="./HangbinLi_ProjB_main.js"></script>
+    <script src="./HangbinLi_ProjB_makeshape.js"></script>
+    <script src="./HangbinLi_ProjB_quaternion.js"></script>
+</body>
+
+</html>
